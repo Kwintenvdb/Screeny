@@ -25,7 +25,6 @@ export default {
 	methods: {
 		onToggle() {
 			this.selected = !this.selected;
-			console.log("toggle");
 		}
 	}
 };
