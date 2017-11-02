@@ -31,8 +31,11 @@ export default {
 		};
 	},
 	methods: {
-		onSubmit() {
-			console.log(this.url);
+		async onSubmit() {
+			console.log("Url: " + this.url);
+			const res = await fetch("/api/screenshots");
+			const json = await res.json();
+			console.log(json);
 		}
 	}
 };

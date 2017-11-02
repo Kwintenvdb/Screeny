@@ -1,0 +1,24 @@
+{
+	"name": "screeny",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Kwintenvdb/Screeny.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Kwintenvdb/Screeny/issues"
+	},
+	"homepage": "https://github.com/Kwintenvdb/Screeny#readme",
+	"dependencies": {
+		"@types/express": "^4.0.39",
+		"express": "^4.16.2"
+	},
+	"devDependencies": {}
+}
