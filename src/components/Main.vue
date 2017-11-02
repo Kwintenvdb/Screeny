@@ -9,35 +9,22 @@
 	</div>
 
 	<div class="columns">
-		<div class="card column">
-			<div class="card-header">
-				<div class="card-title h5">Square</div>
-				<div class="card-subtitle text-gray">1000x1000</div>
-			</div>
-		</div>
-
-		<div class="card column">
-			<div class="card-header">
-				<div class="card-title h5">Large</div>
-				<div class="card-subtitle text-gray">1920x1080</div>
-			</div>
-		</div>
-		
-		<div class="card column">
-			<div class="card-header">
-				<div class="card-title h5">Large</div>
-				<div class="card-subtitle text-gray">1920x1080</div>
-			</div>
-		</div>
+		<viewport-toggle class="column"/>
+		<viewport-toggle class="column"/>
+		<viewport-toggle class="column"/>
 	</div>
-	
 </div>
 
 </template>
 
 <script>
+import ViewportToggle from "./ViewportToggle";
+
 export default {
 	name: "main",
+	components: {
+		ViewportToggle
+	},
 	data() {
 		return {
 			url: ""
