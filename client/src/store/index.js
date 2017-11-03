@@ -18,7 +18,8 @@ export default new Vuex.Store({
 			new Viewport(800, 600, "Small"),
 			new Viewport(1280, 720, "Medium"),
 			new Viewport(1920, 1080, "Full HD")
-		]
+		],
+		loadingScreenshots: false
 	},
 	getters: {
 		viewports(state) {
@@ -26,11 +27,17 @@ export default new Vuex.Store({
 		},
 		selectedViewports(state) {
 			return state.viewports.filter(v => v.selected);
+		},
+		loadingScreenshots(state) {
+			return state.loadingScreenshots;
 		}
 	},
 	mutations: {
 		setSelected(state, { viewport, selected }) {
 			viewport.selected = selected;
+		},
+		setLoadingScreenshots(state, loadingScreenshots) {
+			state.loadingScreenshots = loadingScreenshots;
 		}
 	}
 });

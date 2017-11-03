@@ -11,7 +11,10 @@
 	<div class="section-form">
 		<div class="input-group">
 			<input v-model="url" type="text" class="form-input" placeholder="Website URL">
-			<button @click="onSubmit" class="btn btn-primary input-group-btn">Submit</button>
+			<button
+				@click="onSubmit"
+				class="btn btn-primary input-group-btn"
+				:class="loadingScreenshots ? 'loading' : ''">Submit</button>
 		</div>
 	</div>
 
@@ -29,7 +32,7 @@
 
 <script>
 import ViewportToggle from "./ViewportToggle";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import axios from "axios";
 
 export default {
@@ -43,17 +46,22 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters(["viewports", "selectedViewports"])
+		...mapGetters(["viewports", "selectedViewports", "loadingScreenshots"]),
 	},
 	methods: {
+		...mapMutations(["setLoadingScreenshots"]),
 		async onSubmit() {
-			const config = {
-				responseType: "blob"
-			};
-			const res = await axios.post("/api/screenshots", {
-				viewports: this.selectedViewports
-			}, config);
-			this.$router.push({ name: "Screenshots", params: { buffer: res.data } });
+			if (!this.loadingScreenshots) {
+				this.setLoadingScreenshots(true);
+				const config = {
+					responseType: "blob"
+				};
+				const res = await axios.post("/api/screenshots", {
+					viewports: this.selectedViewports
+				}, config);
+				this.$router.push({ name: "Screenshots", params: { buffer: res.data } });
+				this.setLoadingScreenshots(false);
+			}
 		}
 	}
 };
