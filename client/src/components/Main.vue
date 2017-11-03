@@ -9,9 +9,10 @@
 	</div>
 
 	<div class="columns">
-		<viewport-toggle class="column"/>
-		<viewport-toggle class="column"/>
-		<viewport-toggle class="column"/>
+		<viewport-toggle
+			v-for="(vp, index) in viewports"
+			:viewport="vp"
+			:key="index"/>
 	</div>
 </div>
 
@@ -19,6 +20,7 @@
 
 <script>
 import ViewportToggle from "./ViewportToggle";
+import { mapGetters } from "vuex";
 import axios from "axios";
 
 export default {
@@ -31,30 +33,21 @@ export default {
 			url: ""
 		};
 	},
+	computed: {
+		...mapGetters(["viewports"])
+	},
 	methods: {
 		async onSubmit() {
-			console.log("Url: " + this.url);
-
-			// axios({
-			// 	method: "POST",
-			// 	data: {
-			// 		viewport: {
-			// 			w: 1920,
-			// 			h: 1080
-			// 		}
-			// 	}
-			// });
+			const config = {
+				responseType: "blob"
+			};
 			const res = await axios.post("/api/screenshots", {
 				viewport: {
-					w: 1920,
-					h: 1080
+					w: 800,
+					h: 600
 				}
-			});
-			console.log(res);
-			// const res = await fetch("/api/screenshots");
-			// const blob = await res.blob();
+			}, config);
 			this.$router.push({ name: "Screenshots", params: { buffer: res.data } });
-			// console.log(blob);
 		}
 	}
 };

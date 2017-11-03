@@ -23,14 +23,16 @@ app.post("/api/screenshots", async (req, res) => {
 		});
 		await page.goto("http://kwintenvdb.com");
 		const screenshot = await page.screenshot();
-		const img = new Buffer(screenshot, "base64");
-		console.log(img);
+		// const img = new Buffer(screenshot, "base64");
+		console.log(screenshot);
 
-		res.writeHead(200, {
-			"Content-Type": "image/png",
-			"Content-Length": img.length
-		});
-		res.end(img);
+		// res.writeHead(200, {
+		// 	"Content-Type": "image/png",
+		// 	"Content-Length": img.length
+		// });
+		// res.end(img);
+		res.write(screenshot);
+		res.end();
 		await browser.close();
 	} catch (e) {
 		console.log(e);

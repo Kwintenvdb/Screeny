@@ -12,6 +12,7 @@ export default {
 	computed: {
 		screenshot() {
 			if (this.buffer) {
+				console.log(window.URL);
 				return URL.createObjectURL(this.buffer);
 			}
 			return "";
