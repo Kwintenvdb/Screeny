@@ -7,14 +7,14 @@
 		<section class="navbar-section"></section>
 	</header>
 
-	<h1>Grab screenshots</h1>
+	<h1 class="text-primary">Grab screenshots</h1>
 	<div class="section-form">
 		<div class="input-group">
 			<input v-model="url" type="text" class="form-input" placeholder="Website URL">
 			<button
 				@click="onSubmit"
 				class="btn btn-primary input-group-btn"
-				:class="loadingScreenshots ? 'loading' : ''">Submit</button>
+				:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
 		</div>
 	</div>
 

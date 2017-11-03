@@ -5,7 +5,7 @@ import App from "./App";
 import router from "./router";
 import store from "./store";
 
-import "../spectre/dist/spectre.min.css";
+// import "../spectre/dist/spectre.min.css";
 
 Vue.config.productionTip = false;
 
