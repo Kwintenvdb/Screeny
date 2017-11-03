@@ -10,10 +10,10 @@
 	<h1 class="text-primary">Grab screenshots</h1>
 	<div class="section-form">
 		<div class="input-group">
-			<input v-model="url" type="text" class="form-input" placeholder="Website URL">
+			<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
 			<button
 				@click="onSubmit"
-				class="btn btn-primary input-group-btn"
+				class="btn btn-primary input-group-btn btn-lg"
 				:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
 		</div>
 	</div>
@@ -57,6 +57,7 @@ export default {
 					responseType: "blob"
 				};
 				const res = await axios.post("/api/screenshots", {
+					url: this.url,
 					viewports: this.selectedViewports
 				}, config);
 				this.$router.push({ name: "Screenshots", params: { buffer: res.data } });

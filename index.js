@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const puppeteer = require("puppeteer");
+const prependHttp = require("prepend-http");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,8 +14,7 @@ app.get("/", (req, res) => {
 
 app.post("/api/screenshots", async (req, res) => {
 	try {
-		const viewports = req.body.viewports;
-		console.log(viewports);
+		const { url, viewports } = req.body;
 		const browser = await puppeteer.launch({ headless: true });
 		const page = await browser.newPage();
 		await page.setViewport({
@@ -22,7 +22,7 @@ app.post("/api/screenshots", async (req, res) => {
 			height: viewports[0].height,
 			isMobile: false
 		});
-		await page.goto("http://kwintenvdb.com");
+		await page.goto(prependHttp(url));
 		const screenshot = await page.screenshot();
 		res.send(screenshot);
 		await browser.close();
