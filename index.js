@@ -13,12 +13,13 @@ app.get("/", (req, res) => {
 
 app.post("/api/screenshots", async (req, res) => {
 	try {
-		const viewport = req.body.viewport;
+		const viewports = req.body.viewports;
+		console.log(viewports);
 		const browser = await puppeteer.launch({ headless: true });
 		const page = await browser.newPage();
 		await page.setViewport({
-			width: viewport.w,
-			height: viewport.h,
+			width: viewports[0].width,
+			height: viewports[0].height,
 			isMobile: false
 		});
 		await page.goto("http://kwintenvdb.com");

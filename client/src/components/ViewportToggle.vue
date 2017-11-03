@@ -1,7 +1,7 @@
 <template>
 <div class="card c-hand" @click="onToggle" :class="this.cardClass">
 	<div class="card-header">
-		<div class="card-title h5">Large</div>
+		<div class="card-title h5">{{viewport.name}}</div>
 		<div class="card-subtitle">{{viewport.width}}x{{viewport.height}}</div>
 	</div>
 </div>

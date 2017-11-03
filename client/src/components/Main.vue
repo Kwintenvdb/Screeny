@@ -1,5 +1,12 @@
 <template>
-<div>
+<div class="grid-lg container">
+	<header class="navbar">
+		<section class="navbar-section">
+			<a href="/" class="navbar-brand">Screeny</a>
+		</section>
+		<section class="navbar-section"></section>
+	</header>
+
 	<h1>Grab screenshots</h1>
 	<div class="section-form">
 		<div class="input-group">
@@ -9,10 +16,12 @@
 	</div>
 
 	<div class="columns">
-		<viewport-toggle
+		<div
+			class="column"
 			v-for="(vp, index) in viewports"
-			:viewport="vp"
-			:key="index"/>
+			:key="index">
+			<viewport-toggle :viewport="vp"/>
+		</div>
 	</div>
 </div>
 
@@ -34,7 +43,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters(["viewports"])
+		...mapGetters(["viewports", "selectedViewports"])
 	},
 	methods: {
 		async onSubmit() {
@@ -42,13 +51,21 @@ export default {
 				responseType: "blob"
 			};
 			const res = await axios.post("/api/screenshots", {
-				viewport: {
-					w: 800,
-					h: 600
-				}
+				viewports: this.selectedViewports
 			}, config);
 			this.$router.push({ name: "Screenshots", params: { buffer: res.data } });
 		}
 	}
 };
 </script>
+
+<style scoped>
+.navbar {
+	position: absolute;
+	top: 0;
+}
+
+.section-form {
+	margin-bottom: .8rem;
+}
+</style>
