@@ -17,18 +17,22 @@ app.post("/api/screenshots", async (req, res) => {
 		const { url, viewports } = req.body;
 		const browser = await puppeteer.launch({ headless: true });
 		const page = await browser.newPage();
-		await page.setViewport({
-			width: viewports[0].width,
-			height: viewports[0].height,
-			isMobile: false
-		});
 		await page.goto(prependHttp(url));
-		const screenshot = await page.screenshot();
+		const screenshot = await getScreenshot(page, vieports[0]);
 		res.send(screenshot);
 		await browser.close();
 	} catch (e) {
 		console.log(e);
 	}
 });
+
+async function getScreenshot(page, viewport) {
+	await page.setViewport({
+		width: viewport.width,
+		height: viewport.height,
+		isMobile: false
+	});
+	return await page.screenshot();
+}
 
 app.listen(3000);
