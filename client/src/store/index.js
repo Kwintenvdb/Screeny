@@ -12,13 +12,16 @@ class Viewport {
 	}
 }
 
+const defaultViewports = [
+	new Viewport(800, 600, "Small"),
+	new Viewport(1280, 720, "Medium"),
+	new Viewport(1920, 1080, "Full HD")
+];
+defaultViewports[0].selected = true;
+
 export default new Vuex.Store({
 	state: {
-		viewports: [
-			new Viewport(800, 600, "Small"),
-			new Viewport(1280, 720, "Medium"),
-			new Viewport(1920, 1080, "Full HD")
-		],
+		viewports: defaultViewports,
 		loadingScreenshots: false
 	},
 	getters: {

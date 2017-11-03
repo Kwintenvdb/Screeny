@@ -7,23 +7,25 @@
 		<section class="navbar-section"></section>
 	</header>
 
-	<h1 class="text-primary">Grab screenshots</h1>
-	<div class="section-form">
-		<div class="input-group">
-			<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
-			<button
-				@click="onSubmit"
-				class="btn btn-primary input-group-btn btn-lg"
-				:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
+	<div class="section-main">
+		<h1 class="text-primary">Grab screenshots</h1>
+		<div class="section-form">
+			<div class="input-group">
+				<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
+				<button
+					@click="onSubmit"
+					class="btn btn-primary input-group-btn btn-lg"
+					:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
+			</div>
 		</div>
-	</div>
 
-	<div class="columns">
-		<div
-			class="column"
-			v-for="(vp, index) in viewports"
-			:key="index">
-			<viewport-toggle :viewport="vp"/>
+		<div class="columns">
+			<div
+				class="column"
+				v-for="(vp, index) in viewports"
+				:key="index">
+				<viewport-toggle :viewport="vp"/>
+			</div>
 		</div>
 	</div>
 </div>
@@ -68,7 +70,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../screeny";
+
 .navbar {
 	position: absolute;
 	top: 0;
@@ -76,5 +80,14 @@ export default {
 
 .section-form {
 	margin-bottom: .8rem;
+}
+
+.section-main {
+	border-width: 1px;
+	border-style: dashed;
+	// border-radius: 10px;
+	border-radius: $border-radius;
+	border-color: $border-color-dark;
+	padding: 70px;
 }
 </style>

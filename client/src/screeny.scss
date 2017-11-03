@@ -1,0 +1,9 @@
+$primary-color: rgb(5, 199, 92);
+
+$border-radius: .3rem;
+
+@import "../spectre/src/spectre";
+
+.card:hover {
+	border-color: $border-color-dark;
+}
