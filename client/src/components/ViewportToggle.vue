@@ -15,7 +15,7 @@ export default {
 	props: ["viewport"],
 	computed: {
 		cardClass() {
-			return this.viewport.selected ? "bg-primary text-light" : "";
+			return this.viewport.selected ? "bg-primary text-light viewport-border" : "";
 		}
 	},
 	methods: {
@@ -29,3 +29,15 @@ export default {
 	}
 };
 </script>
+
+<style scoped lang="scss">
+@import "../screeny";
+
+.viewport-border {
+	border-color: $primary-color;
+	
+	&:hover {
+		border-color: $primary-color;
+	}
+}
+</style>

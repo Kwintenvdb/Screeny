@@ -1,14 +1,8 @@
 <template>
 <div class="grid-lg container">
-	<header class="navbar">
-		<section class="navbar-section">
-			<a href="/" class="navbar-brand">Screeny</a>
-		</section>
-		<section class="navbar-section"></section>
-	</header>
-
 	<div class="section-main">
-		<h1 class="text-primary">Grab screenshots</h1>
+		<p class="h1">Grab screenshots</p>
+		<!-- <h1 class="text-primary">Grab screenshots</h1> -->
 		<div class="section-form">
 			<div class="input-group">
 				<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
@@ -73,21 +67,19 @@ export default {
 <style lang="scss">
 @import "../screeny";
 
-.navbar {
-	position: absolute;
-	top: 0;
-}
-
 .section-form {
 	margin-bottom: .8rem;
 }
 
 .section-main {
-	border-width: 1px;
-	border-style: dashed;
-	// border-radius: 10px;
+	background-color: $bg-color;
+	// border-width: 2px;
+	// border-style: dashed;
+	// border-radius: 1rem;
 	border-radius: $border-radius;
+	// border-color: $secondary-color;
 	border-color: $border-color-dark;
+	box-shadow: $shadow;
 	padding: 70px;
 }
 </style>

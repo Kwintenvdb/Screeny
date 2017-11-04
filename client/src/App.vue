@@ -1,6 +1,9 @@
 <template>
 <div id="app" class="app">
-	<router-view/>
+		<div class="page-divider"></div>
+	<div class="page">
+		<router-view/>
+	</div>
 </div>
 </template>
 
@@ -13,14 +16,24 @@ export default {
 <style lang="scss">
 @import "screeny";
 
-.app {
+.page {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 
-	background-color: #f6f6f6;
+	// background-color: #f6f6f6;
 	text-align: center;
+	background: linear-gradient(to bottom right, #2191FB, #2A2A9E);
 }
+
+// .page-divider {
+// 	position: absolute;
+// 	width: 100%;
+// 	height: 50%;
+// 	top: 0;
+// 	background-color: $primary-color;
+// }
 </style>

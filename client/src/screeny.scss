@@ -1,9 +1,21 @@
-$primary-color: rgb(5, 199, 92);
+// $primary-color: rgb(0, 209, 129);
+$primary-color: #FF7200;
+// $primary-color:#006BA6;
+$secondary-color: #2191FB;
+
+$green: rgb(5, 199, 92);
+// $primary-color: rgb(5, 199, 92);
+// $body-bg: #7CDBD5;
+// $body-bg: $primary-color;
+// $body-bg: #f8f8f8;
+
+$shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
 
 $border-radius: .3rem;
 
 @import "../spectre/src/spectre";
 
 .card:hover {
+	// border-color: $primary-color;
 	border-color: $border-color-dark;
 }
