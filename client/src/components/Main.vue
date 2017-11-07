@@ -3,6 +3,8 @@
 	<h1 class="text-light text-shadow">Screeny is an automatic webpage screenshot tool.<br><small>Take screenshots of multiple sizes with ease.</small></h1>
 	<div class="section-main">
 		<!-- <p class="h1">Grab screenshots</p> -->
+		<p class="h5">Enter the page you would like to screengrab</p>
+		
 		<div class="section-form">
 			<form>
 				<div class="input-group">
@@ -15,6 +17,8 @@
 			</form>
 			
 		</div>
+
+		<p class="h5">Select viewport sizes</p>
 
 		<div class="columns">
 			<div
