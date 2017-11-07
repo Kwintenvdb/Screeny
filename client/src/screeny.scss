@@ -1,7 +1,9 @@
 // $primary-color: rgb(0, 209, 129);
-$primary-color: #DB5461;
+$primary-color: #00dd55;
+// $primary-color: #DB3069;
+// $primary-color: #1E91D6;
 // $primary-color:#006BA6;
-$secondary-color: #2191FB;
+$secondary-color: #1E91D6;
 
 $green: rgb(5, 199, 92);
 // $primary-color: rgb(5, 199, 92);
@@ -16,6 +18,12 @@ $border-radius: .3rem;
 @import "../spectre/src/spectre";
 
 .card:hover {
+	@include control-transition();
 	// border-color: $primary-color;
+	background-color: darken($light-color, 2%);
 	border-color: $border-color-dark;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }

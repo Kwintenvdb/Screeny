@@ -1,16 +1,19 @@
 <template>
 <div class="grid-lg container">
+	<h1 class="text-light text-shadow">Screeny is an automatic webpage screenshot tool.<br><small>Take screenshots of multiple sizes with ease.</small></h1>
 	<div class="section-main">
-		<p class="h1">Grab screenshots</p>
-		<!-- <h1 class="text-primary">Grab screenshots</h1> -->
+		<!-- <p class="h1">Grab screenshots</p> -->
 		<div class="section-form">
-			<div class="input-group">
-				<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
-				<button
-					@click="onSubmit"
-					class="btn btn-primary input-group-btn btn-lg"
-					:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
-			</div>
+			<form>
+				<div class="input-group">
+					<input v-model="url" type="text" class="form-input input-lg" placeholder="Website URL">
+					<button
+						@click="onSubmit"
+						class="btn btn-primary input-group-btn btn-lg"
+						:class="loadingScreenshots ? 'loading' : ''">Grab screenshots</button>
+				</div>
+			</form>
+			
 		</div>
 
 		<div class="columns">
@@ -29,7 +32,7 @@
 <script>
 import ViewportToggle from "./ViewportToggle";
 import { mapGetters, mapMutations } from "vuex";
-import axios from "axios";
+import getScreenshots from "../getScreenshots";
 
 export default {
 	name: "main",
@@ -49,14 +52,8 @@ export default {
 		async onSubmit() {
 			if (!this.loadingScreenshots) {
 				this.setLoadingScreenshots(true);
-				const config = {
-					responseType: "blob"
-				};
-				const res = await axios.post("/api/screenshots", {
-					url: this.url,
-					viewports: this.selectedViewports
-				}, config);
-				this.$router.push({ name: "Screenshots", params: { buffer: res.data } });
+				const screenshots = await getScreenshots(this.url, this.selectedViewports);
+				this.$router.push({ name: "Screenshots", params: { buffer: screenshots } });
 				this.setLoadingScreenshots(false);
 			}
 		}

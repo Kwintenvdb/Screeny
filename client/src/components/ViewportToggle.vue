@@ -34,10 +34,12 @@ export default {
 @import "../screeny";
 
 .viewport-border {
+	@include control-transition();
 	border-color: $primary-color;
 	
 	&:hover {
 		border-color: $primary-color;
+		background-color: darken($primary-color, 2%);
 	}
 }
 </style>

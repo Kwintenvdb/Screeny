@@ -1,6 +1,6 @@
 <template>
-<div>
-	<h1>Screenshots:</h1>
+<div class="section-main">
+	<p class="h1">Here are your screenshots</p>
 	<img :src="screenshot" class="img-responsive"/>
 </div>
 </template>

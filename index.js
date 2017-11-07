@@ -23,6 +23,7 @@ app.post("/api/screenshots", async (req, res) => {
 		await browser.close();
 	} catch (e) {
 		console.log(e);
+		res.sendStatus(500);
 	}
 });
 
