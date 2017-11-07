@@ -1,6 +1,16 @@
 <template>
 <div id="app" class="app">
-		<div class="page-divider"></div>
+	<!-- <div class="top-nav">
+		<a href="/"><p class="text-light h3">Screeny</p></a>
+	</div> -->
+	<header class="navbar">
+		<section class="navbar-section"></section>
+		<section class="navbar-center">
+			<router-link to="/" class="text-shadow navbar-brand">Screeny</router-link>
+		</section>
+		<section class="navbar-section"></section>
+	</header>
+	
 	<div class="page">
 		<router-view/>
 	</div>
@@ -46,6 +56,25 @@ export default {
 	// background: linear-gradient(to bottom right, #2191FB, #2A2A9E);
 }
 
+.navbar-brand {
+	font-size: 1.2rem !important;
+}
+
+.navbar {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+
+	padding: .8rem;
+
+	.navbar-brand, .btn-link {
+		color: $light-color !important;
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
 // .page-divider {
 // 	position: absolute;
 // 	width: 100%;
