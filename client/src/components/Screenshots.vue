@@ -1,7 +1,9 @@
 <template>
-<div class="section-main">
-	<p class="h1">Here are your screenshots</p>
-	<img :src="screenshot" class="img-responsive"/>
+<div>
+	<h1 class="text-light text-shadow">Here are your screenshots.</small></h1>
+	<div class="section-main">
+		<img :src="screenshot" class="img-responsive"/>
+	</div>
 </div>
 </template>
 

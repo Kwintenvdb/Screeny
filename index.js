@@ -18,7 +18,7 @@ app.post("/api/screenshots", async (req, res) => {
 		const browser = await puppeteer.launch({ headless: true });
 		const page = await browser.newPage();
 		await page.goto(prependHttp(url));
-		const screenshot = await getScreenshot(page, vieports[0]);
+		const screenshot = await getScreenshot(page, viewports[0]);
 		res.send(screenshot);
 		await browser.close();
 	} catch (e) {
