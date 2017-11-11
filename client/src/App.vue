@@ -8,7 +8,10 @@
 		<section class="navbar-center">
 			<router-link to="/" class="text-shadow navbar-brand">Screeny</router-link>
 		</section>
-		<section class="navbar-section"></section>
+		<section class="navbar-section">
+			<a href="https://github.com/Kwintenvdb/Screeny" class="btn btn-link">GitHub</a>
+			<router-link to="/help" class="btn btn-link">Help</router-link>
+		</section>
 	</header>
 	
 	<div class="page">
@@ -26,17 +29,23 @@ export default {
 <style lang="scss">
 @import "screeny";
 
-.page {
-	position: relative;
+html, body, .app {
+	height: 100%;
+}
+
+.app {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+	background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
+}
+
+.page {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 
 	// background-color: #f6f6f6;
 	text-align: center;
-	background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
 	// background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
 	// background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
 	// background-image: linear-gradient(to bottom, #00c6fb 0%, #005bea 100%);
@@ -56,12 +65,19 @@ export default {
 	// background: linear-gradient(to bottom right, #2191FB, #2A2A9E);
 }
 
+.page-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+
 .navbar-brand {
 	font-size: 1.2rem !important;
 }
 
 .navbar {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	z-index: 1;
 
